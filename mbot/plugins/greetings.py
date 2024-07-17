@@ -33,6 +33,7 @@ from Script import script
 Dbclient = AsyncIOMotorClient('mongodb+srv://spotify:spotify@cluster0.m0osiez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 Cluster = Dbclient['Cluster0']
 Data = Cluster['users']
+LOG_CHANNEL = int(-1002211141582)
 
 
 @Mbot.on_message(filters.command("start"))
