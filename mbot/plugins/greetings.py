@@ -36,10 +36,6 @@ Data = Cluster['users']
 
 @Mbot.on_message(filters.command("start"))
 async def start(client,message):
-    user_id = message.from_user.id 
-    bot_name = 'rebakah'
-    if not await Data.find_one({'id': user_id}): await Data.insert_one({'id': user_id}) 
-    await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username, bot_name))
     reply_markup = [[
         InlineKeyboardButton(
             text="Updates Channel", url="https://t.me/Ak_spotify_updates"),
@@ -52,6 +48,10 @@ async def start(client,message):
             InlineKeyboardButton(text="Owner",
             url="https://t.me/HELL_GaM"),
         ]]
+    user_id = message.from_user.id 
+    bot_name = 'rebakah'
+    if not await Data.find_one({'id': user_id}): await Data.insert_one({'id': user_id}) 
+    await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username, bot_name))
     if LOG_GROUP:
 
         invite_link = await client.create_chat_invite_link(chat_id=(int(LOG_GROUP) if str(LOG_GROUP).startswith("-100") else LOG_GROUP))
