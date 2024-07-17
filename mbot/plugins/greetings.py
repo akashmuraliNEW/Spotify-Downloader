@@ -28,7 +28,7 @@ from pyrogram.raw.functions import Ping
 from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot,AUTH_CHATS
 from os import execvp,sys
 from motor.motor_asyncio import AsyncIOMotorClient
-from info import script
+from Script import script
 
 Dbclient = AsyncIOMotorClient('mongodb+srv://spotify:spotify@cluster0.m0osiez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 Cluster = Dbclient['Cluster0']
