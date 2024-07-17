@@ -78,7 +78,7 @@ async def spotify_dl(Mbot,message: Message):
     if "https://www.deezer.com" in link:
        return
     if "https://youtu.be" in link:
-          return await message.reply("301: Use @y2mate_api_bot Insted Of Me 🚫")
+          return await message.reply("301: use @MM_Films Insted Of Me 🚫")
     try:
         parsed_item = await parse_spotify_url(link)
         item_type, item_id = parsed_item[0],parsed_item[1]
@@ -563,7 +563,7 @@ async def spotify_dl(Mbot,message: Message):
         try:
             await message.reply_text(f"Done✅",   
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Feedback", callback_data="feed")]]))
-            await message.reply_text(f"Check out @spotify_downloa (music)  @spotifynewss(News)")
+            await message.reply_text(f"Check out @Ak_spotify_updates")
             await m.delete()
         except:
             pass 
@@ -573,7 +573,7 @@ async def spotify_dl(Mbot,message: Message):
 async def feedback(Mbot,query):
       try:
           K = await query.message.edit(f"Feedback 🏴‍☠️",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Press here", url="https://t.me/dailychannelsbot?start=spotify_downloa_bot")]]))
+                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Press here", url="https://t.me/HELL_GaM")]]))
           H = print("New Feedback")
           if BUG:
              await copy(K,H)
@@ -586,7 +586,7 @@ async def bug(_,query):
           K = await query.message.edit(f'please report to the dev say "private version" with above  error occurred message')
           await sleep(2.3)
           H = await query.message.edit(f"Bug Report 🪲",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/masterolic")]]))
+                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/HELL_GaM")]]))
           if BUG:
              await copy(K,H)
       except Exception as e:
