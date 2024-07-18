@@ -47,7 +47,7 @@ async def start(client,message):
         InlineKeyboardButton(text="Help",callback_data="helphome")
         ],
         [
-            InlineKeyboardButton(text="Owner",
+            InlineKeyboardButton(text="Donate",
             url="https://t.me/HELL_GaM"),
         ]]
     user_id = message.from_user.id 
@@ -61,7 +61,7 @@ async def start(client,message):
     if message.chat.type != "private" and message.chat.id not in AUTH_CHATS and message.from_user.id not in SUDO_USERS:
         return await message.reply_text("This Bot Will Not Work In Groups Unless It's Authorized.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
-    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Music Downloader Bot. I Currently Support Download from \n Youtube, spotify, twitter aka x, fb, insta and many more",
+    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Music Downloader Bot. I Currently Support Download from \n Youtube, spotify, twitter aka x, fb, insta and many more.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
 
 @Mbot.on_message(filters.command("restart") & filters.chat(OWNER_ID) & filters.private)
@@ -82,10 +82,10 @@ async def ping(client,message):
 
 HELP = {
     "Youtube": "Send **Youtube** Link in Chat to Download Song.",
-    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.",
+    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.or send an name of the song",
     "Deezer": "Send Deezer Playlist/Album/Track Link. I'll Download It For You.",
-    "Jiosaavn": "Not Implemented yet",
-    "SoundCloud": "Not Implemented yet",
+    "Jiosaavn": "use /saavan faded",
+    "SoundCloud": "just send me an link",
     "Group": "Will add later."
 }
 
