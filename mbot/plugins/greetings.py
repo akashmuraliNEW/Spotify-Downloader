@@ -33,7 +33,7 @@ from Script import script
 Dbclient = AsyncIOMotorClient('mongodb+srv://spotify:spotify@cluster0.m0osiez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 Cluster = Dbclient['Cluster0']
 Data = Cluster['users']
-LOG_CHANNEL = -1002211141582
+LOG_CHANNEL = -1002195222883
 
 @Mbot.on_message(filters.command("start"))
 async def start(client,message):
@@ -83,10 +83,10 @@ async def ping(client,message):
 
 HELP = {
     "Youtube": "Send **Youtube** Link in Chat to Download Song.",
-    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.",
+    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.or send me an song name",
     "Deezer": "Send Deezer Playlist/Album/Track Link. I'll Download It For You.",
-    "Jiosaavn": "Not Implemented yet",
-    "SoundCloud": "Not Implemented yet",
+    "Jiosaavn": "use /saavan faded",
+    "SoundCloud": "just send me an link",
     "Group": "Will add later."
 }
 
