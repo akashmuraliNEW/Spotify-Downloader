@@ -57,7 +57,7 @@ async def spotify_dl(Mbot,message: Message):
     if "https://www.deezer.com" in link:
        return
     if "https://youtu.be" in link:
-          return await message.reply("301: Use @y2mate_api_bot Insted Of Me 🚫")
+          return await message.reply("301: Use /song 🚫")
     try:
         parsed_item = await parse_spotify_url(link)
         item_type, item_id = parsed_item[0],parsed_item[1]
