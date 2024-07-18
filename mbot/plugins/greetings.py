@@ -33,8 +33,7 @@ from Script import script
 Dbclient = AsyncIOMotorClient('mongodb+srv://spotify:spotify@cluster0.m0osiez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 Cluster = Dbclient['Cluster0']
 Data = Cluster['users']
-LOG_CHANNEL = int(-1002211141582)
-
+LOG_CHANNEL = -1002211141582
 
 @Mbot.on_message(filters.command("start"))
 async def start(client,message):
@@ -47,13 +46,15 @@ async def start(client,message):
         InlineKeyboardButton(text="Help",callback_data="helphome")
         ],
         [
-            InlineKeyboardButton(text="Support",
+            InlineKeyboardButton(text="Owner",
             url="https://t.me/HELL_GaM"),
         ]]
     user_id = message.from_user.id 
     bot_name = 'rebakah'
-    if not await Data.find_one({'id': user_id}): await Data.insert_one({'id': user_id}) 
-    await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username, bot_name))
+    if not await Data.find_one({'id': user_id}): 
+        await Data.insert_one({'id': user_id}) 
+        await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username, bot_name))
+    
     if LOG_GROUP:
 
         invite_link = await client.create_chat_invite_link(chat_id=(int(LOG_GROUP) if str(LOG_GROUP).startswith("-100") else LOG_GROUP))
@@ -61,7 +62,7 @@ async def start(client,message):
     if message.chat.type != "private" and message.chat.id not in AUTH_CHATS and message.from_user.id not in SUDO_USERS:
         return await message.reply_text("This Bot Will Not Work In Groups Unless It's Authorized.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
-    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Music Downloader Bot. I Currently Support Download from \n Youtube, spotify, twitter aka x, fb, insta and many more.",
+    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Music Downloader Bot. I Currently Support Download from \n Youtube, spotify, twitter aka x, fb, insta and many more",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
 
 @Mbot.on_message(filters.command("restart") & filters.chat(OWNER_ID) & filters.private)
@@ -82,10 +83,10 @@ async def ping(client,message):
 
 HELP = {
     "Youtube": "Send **Youtube** Link in Chat to Download Song.",
-    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.or send an name of the song",
+    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.",
     "Deezer": "Send Deezer Playlist/Album/Track Link. I'll Download It For You.",
-    "Jiosaavn": "use /saavan faded",
-    "SoundCloud": "just send me an link",
+    "Jiosaavn": "Not Implemented yet",
+    "SoundCloud": "Not Implemented yet",
     "Group": "Will add later."
 }
 
