@@ -36,7 +36,7 @@ def getIds(video):
             ids.append([info_dict.get('id'),info_dict.get('playlist_index'),info_dict.get('creator') or info_dict.get('uploader'),info_dict.get('title'),info_dict.get('duration'),info_dict.get('thumbnail')])
     return ids
 
-def audio_opt(path,uploader="@YouNeedMusicBot"):
+def audio_opt(path,uploader="Spotify Dl"):
     return {
         "format": "bestaudio",
         "addmetadata": True,
