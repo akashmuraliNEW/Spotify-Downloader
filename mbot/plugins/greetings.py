@@ -47,7 +47,7 @@ async def start(client,message):
         InlineKeyboardButton(text="Help",callback_data="helphome")
         ],
         [
-            InlineKeyboardButton(text="Donate",
+            InlineKeyboardButton(text="Support",
             url="https://t.me/HELL_GaM"),
         ]]
     user_id = message.from_user.id 
