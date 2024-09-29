@@ -55,8 +55,9 @@ async def Fsub(message, Mbot, user_id):
       except (StopPropagation, ChatWriteForbidden):
           raise StopPropagation
       except Exception as e:
-          await Mbot.send_message(BUG, f"#Fsub module Exception Raised {e}\n {paste(traceback.format_exc())}")
-          await message.reply('503: Sorry, We Are Unable To Procced It 🤕❣️')     
+           print(e)
+          # await Mbot.send_message(BUG, f"#Fsub module Exception Raised {e}\n {paste(traceback.format_exc())}")
+          # await message.reply('503: Sorry, We Are Unable To Procced It 🤕❣️')     
       for var in list(locals()):
         if var != '__name__' and var != '__doc__':
             del locals()[var]
